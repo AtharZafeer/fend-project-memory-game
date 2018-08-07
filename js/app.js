@@ -68,46 +68,26 @@ deck.addEventListener('click',function(e){
     console.log(cardTag);
     cardList=e.target.innerHTML;
 });*/
+
+
+
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 let second = 0, minute = 0;
 const timer = document.querySelector(".timer");
 let interval;
 let moves=0;
+let openedCards=[];
 let counter=0;
 let stars=[...document.getElementsByClassName('.stars')];
 const displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
     this.classList.toggle("disabled");
+    
  }
 
-
-for (var i = 0; i < cards.length; i++){
-   cards[i].addEventListener("click", displayCard);
-};
-
-
- const deck = document.querySelector(".deck");
- window.onload= start();
-
-
- function start(){
-    let shuffledArray = shuffle(cards);
-    const Frag = document.createDocumentFragment();
-    for (let i= 0; i < shuffledArray.length; i++){
-       [].forEach.call(shuffledArray, function(item){
-          Frag.appendChild(item);
-       });
-    }
-    deck.appendChild(Frag);
-    let timer = document.querySelector(".timer");
-    timer.innerHTML = "0 mins 0 secs";
-    clearInterval(interval);
- }
-
-
- function movesMade(){    
+function movesMade(){    
     moves++;    
     counter.innerHTML = moves;
     if (moves > 8 && moves < 12){
@@ -133,18 +113,6 @@ for (var i = 0; i < cards.length; i++){
 }
 
 
- function cardOpen() {
-    openedCards.push(this);
-    var len = openedCards.length;
-    if(len === 2){
-            movesMade();
-        if(openedCards[0].type === openedCards[1].type){
-            matched();
-        } else {
-            unmatched();
-        }
-    }
-}
 
 
 function matched(){
@@ -157,7 +125,7 @@ function matched(){
 
 
 function unmatched(){
-    openedCards[0].classList.add("unmatched");
+   openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
     disable();
     setTimeout(function(){
@@ -183,6 +151,19 @@ function enable(){
             matchedCard[i].classList.add("disabled");
         }
     });
+}
+
+function cardOpen() {
+    openedCards.push(this);
+    let len = openedCards.length;
+    if(len === 2){
+            movesMade();console.log("cardOpen");
+        if(openedCards[0].type === openedCards[1].type){
+            matched();console.log('matched');
+        } else {
+            unmatched();console.log("unmateched");
+        }
+    }
 }
 
 function startTimer(){
@@ -224,3 +205,26 @@ reset.addEventListener('click',function(){
    timer.innerHTML = "0 mins 0 secs";
    clearInterval(interval);
 });
+
+
+function start(){
+    let shuffledArray = shuffle(cards);
+    const Frag = document.createDocumentFragment();
+    for (let i= 0; i < shuffledArray.length; i++){
+       [].forEach.call(shuffledArray, function(item){
+          Frag.appendChild(item);
+       });
+    }
+    deck.appendChild(Frag);
+    let timer = document.querySelector(".timer");
+    timer.innerHTML = "0 mins 0 secs";
+    clearInterval(interval);
+ }
+
+ for (var i = 0; i < cards.length; i++){
+    cards[i].addEventListener("click",displayCard,true);
+ }
+const deck = document.querySelector(".deck");
+  window.onload= start();
+
+
