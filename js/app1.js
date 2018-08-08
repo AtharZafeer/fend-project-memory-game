@@ -100,7 +100,7 @@ function restart(){
              cards[i].classList.remove("show", "open","disable"); 
          }
          deck.appendChild(frag);
-         
+         viewedElements=[];
          moves=0;
          let move=document.querySelector('.moves');
          move.textContent=moves;
