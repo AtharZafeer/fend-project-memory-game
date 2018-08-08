@@ -245,3 +245,41 @@ h1 {
 .endTime {
     opacity:0.7;
 }
+/* media queries*/
+@media(min-width: 768px){
+    .container {
+		font-size: 22px;
+	}
+
+	.deck {
+		width: 660px;
+		height: 680px;
+	}
+
+	.deck .card {
+		height: 125px;
+		width: 125px;
+    }
+    .popup{
+        top:20%;
+        bottom: 20%;
+        padding: 20%;
+        background: #aca3a3;
+    }
+}
+@media (max-width: 320px) {
+	.deck {
+		width: 85%;
+	}
+
+	.deck .card {
+		height: 4.7rem;
+		width: 4.7rem;
+    }
+    .popup{
+        top:10%;
+        bottom :10%;
+        padding:10%;
+        background: #aca3a3;
+    }
+}

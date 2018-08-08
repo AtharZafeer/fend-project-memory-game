@@ -143,15 +143,15 @@ function movesMade(){
     if(moves==1){
      startTimer();   
     }
-    if (moves > 8 && moves < 12){
+    if (moves > 8 && moves < 16){
        stars.innerHTML=""; 
        stars.innerHTML='<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>';
        console.log(stars);
     }
-    else if (moves > 12 && moves <=15){
+    else if (moves > 16 && moves <=20){
         stars.innerHTML="";
         stars.innerHTML='<li><i class="fa fa-star"></i></li>';
-    }else if(moves > 15){
+    }else if(moves > 20){
         stars.innerHTML=' ';
     }
 }
