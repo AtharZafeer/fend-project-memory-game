@@ -2,7 +2,7 @@ let interval,minute=0,second=0,hour=0;
 let cards=[...document.getElementsByClassName("card")];
 let deck= document.querySelector(".deck");
 const reset= document.querySelector(".restart");
-var openCards=[], viewedElements=[];
+let openCards=[], viewedElements=[];
 let moves=0; 
 //let container=document.querySelector('.container');
 let stars=document.querySelector('.stars');
@@ -100,6 +100,7 @@ function restart(){
              cards[i].classList.remove("show", "open","disable"); 
          }
          deck.appendChild(frag);
+         openCards=[];
          viewedElements=[];
          moves=0;
          let move=document.querySelector('.moves');
