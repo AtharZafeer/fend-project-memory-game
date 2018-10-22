@@ -37,5 +37,5 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 
 ## Contributing
 
-    This a project for Udacity Front End Nano degree Scholarship. If you wish to contribute to this. Don't contribute to this. I am serious. Don't.
+    This a project for Udacity Front End Nano degree Scholarship. If you wish to contribute to this. Don't contribute to this. I am serious.                                                                                                     Don't.
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
